@@ -190,11 +190,14 @@ italy_subregions_geofabrik = [
 noregion_geofabrik = ['russia', 'asia']
 
 geofabrik_regions = ['africa', 'antarctica', 'asia', 'australia-oceania',
-            'central-america', 'europe', 'north-america', 'south-america']
+                     'central-america', 'europe', 'north-america', 'south-america']
 
 block_download = ['dach', 'alps', 'britain-and-ireland', 'south-africa-and-lesotho',
-            'us-midwest', 'us-northeast', 'us-pacific', 'us-south', 'us-west']
+                  'us-midwest', 'us-northeast', 'us-pacific', 'us-south', 'us-west']
 
+# Special_regions like (former) colonies where the map of the wanted region is not present in the map of the parent country.
+# example Guadeloupe, it's Geofabrik parent country is France but Guadeloupe is not located within the region covered by the map of France.
+special_regions = ['guadeloupe', 'guyane', 'martinique', 'mayotte', 'reunion']
 
 # Tags to keep
 # filtered_tags = ['access', 'admin_level', 'aerialway', 'aeroway', 'barrier',
