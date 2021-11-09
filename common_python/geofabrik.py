@@ -244,11 +244,12 @@ def find_needed_countries(bbox_tiles, wanted_map, wanted_region_polygon):
                 if rshape.intersects(poly):  # if so
                     # catch special_regions like (former) colonies where the map of the region is not fysically in the map of the parent country.
                     # example Guadeloupe, it's parent country is France but Guadeloupe is not located within the region covered by the map of France
-                    if wanted_map not in special_regions:
+                    if wanted_map not in constants.special_regions:
                         # If we are proseccing a sub-region add the parent of this sub-region
                         # to the must download list.
                         # This to prevent downloading several small regions AND it's containing region
-                        if parent not in constants.geofabrik_regions:
+                        # we are processing a sub-regiongo find the parent region:
+                        if parent not in constants.geofabrik_regions and regionname not in constants.geofabrik_regions:
                             # we are processing a sub-regiongo find the parent region
                             x_value = 0
                             # handle sub-sub-regions like unterfranken->bayern->germany
@@ -268,7 +269,12 @@ def find_needed_countries(bbox_tiles, wanted_map, wanted_region_polygon):
                                 must_download_urls.append(
                                     find_geofbrik_url(parent, geofabrik_json_data))
                                 #parent_added = 1
+                        else:
+                            if regionname not in must_download_maps:
+                                must_download_maps.append(regionname)
+                                must_download_urls.append(rurl)
                     else:
+                        # wanted_map is a special region like Guadeloupe, France
                         if regionname not in must_download_maps:
                             must_download_maps.append(regionname)
                             must_download_urls.append(rurl)
