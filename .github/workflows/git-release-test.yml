@@ -1,4 +1,4 @@
-name: Git Release Test
+name: Test create release with .zip files
 
 on:
   push:
@@ -31,9 +31,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           UNRELEASED: "update"
+          ALLOW_EMPTY_CHANGELOG: true
+          DRAFT_RELEASE: true
         with:
           args: |
-            dist/wahooMapsCreator-*.zip
+            dist/*.zip
             darwin-amd64.zip
             linux-amd64.zip
             windows-amd64.zip

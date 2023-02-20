@@ -1,5 +1,9 @@
 <div align="center">
-    <img src="https://github.com/treee111/wahooMapsCreator/blob/develop/docs/wahoo_elemnt_bolt.png" alt="wahooMapsCreator Logo" width=20%>
+    <p>
+    <img src="./docs/pictures/wahoo_elemnt_bolt_poi1.png" alt="wahooMapsCreator Logo" width=20%>
+    <img src="./docs/pictures/wahoo_elemnt_bolt.png" alt="wahooMapsCreator Logo" width=20%>
+    <img src="./docs/pictures/wahoo_elemnt_bolt_poi2.png" alt="wahooMapsCreator Logo" width=20%>
+    </p>
     <p>
         <a href="https://img.shields.io/badge/python-v3.6+-blue.svg" alt="Python">
             <img src="https://img.shields.io/badge/python-v3.6+-blue.svg" /></a>
@@ -8,101 +12,62 @@
         <a href="#sponsors" alt="Contributions welcome">
             <img src="https://img.shields.io/badge/contributions-welcome-orange.svg" /></a>
     </p>
-    <h1>Wahoo Maps Creator</h1>
 </div>
-A tool to create up-to-date maps for your Wahoo ELEMNT BOLT and BOLTv2, ELEMNT ROAM and Wahoo ELEMNT! It runs on Windows, macOS as well as on Unix!
 
-# Basic Overview
-WahooMapsCreator is a tool to create maps based on the latest OSM data for your Wahoo devices. You can generate maps for the countries you like and you can control which OSM-tags are included.
+# wahooMapsCreator
+wahooMapsCreator is a tool to create up-to-date maps for your Wahoo device. It supports BOLTv1, BOLTv2, ROAM, ROAMv2 and ELEMNT!
 
-The maps of your device may be old because Wahoo did not release a newer version in the last years. OSM maps are constantly updated and with this program, the updated maps can be used on our Wahoo bike-computers.
+You can generate maps for the countries you like with latest OSM data and you can control which OSM-tags are included.
+
+> why? The maps of your device may be old because Wahoo did not release a newer version in the last years.
 
 ## Get it running
-The instructens are intended to be suitable for beginners.
-If anything is unclear or just wrong, write an issue!
+The instructions are intended to be suitable for beginners.
 
-### Overview of the steps
-The steps for all OS are similar:
-- Download and Install required programs
-- Download a release of wahooMapsCreator or clone Repository
-- Run wahooMapsCreator for your country
-- Copy the map-files to your device
+If anything is unclear or seams wrong, write an [:pencil2: issue](https://github.com/treee111/wahooMapsCreator/issues)
 
-Optional:
-- use a custom theme on your Wahoo
+## To start with...
+1. [:rocket: Quick Start Guide to download and install required programs](docs/QUICKSTART_ANACONDA.md#download-and-install-required-programs)
 
-### Download and Install required programs
-The initial setup takes some minutes but is only a one-timer!
+2. [:computer: Run wahooMapsCreator - detailled usage description](docs/USAGE.md#usage-of-wahoomapscreator)
 
-Follow the Quick Start guide depending on your OS:
-- [Quick Start Guide for Windows](docs/QUICKSTART_WINDOWS.md)
-- [Quick Start Guide for macOS](docs/QUICKSTART_MACOS.md)
+> In short: activate Anaconda environment, run wahooMapsCreator via CLI or via GUI.
+```
+conda activate gdal-user
+python -m wahoomc cli -co malta
+python -m wahoomc gui
+```
 
-Or use Anaconda to create a Python environment
-- [Quick Start Guide for Anaconda](docs/QUICKSTART_ANACONDA.md)
+3. [:floppy_disk: Copy the map-files to your device after generation](docs/COPY_TO_WAHOO.md#copy-maps-files-to-wahoo-device-)
 
-### Get wahooMapsCreator
-Download the latest Release from the ["Releases" Section](https://github.com/treee111/wahooMapsCreator/releases) and Save the folder on your drive. You can also clone the repository and have the latest coding.
+## To further adjust...
+* [:cookie: Get POIs displayed on your Wahoo](docs/USAGE.md#pois---points-of-interest)
 
-## Run wahooMapsCreator
-wahooMapsCreator can be used in two different ways.
+* [:wrench: Control OSM tags to be included in your maps ](docs/USAGE.md#user-specific-configuration)
 
-Both ways support the same arguments to be used for the map-creation process. You can choose them via GUI or as [CLI-arguments](#advanced-cli-usage).
-### GUI (Graphical User Interface)
+* [:computer: Preview your generated maps with cruiser ](docs/USAGE_CRUISER.md#usage-of-cruiser)
 
-From the `root` folder of wahooMapsCreator, run:
-  - `python3 wahoo_map_creator.py` or
-  - `python wahoo_map_creator.py`
-  - <img src="https://github.com/treee111/wahooMapsCreator/blob/develop/docs/gui.png" alt="wahooMapsCreator GUI" width=50%>
 
-### CLI (Command Line Interfaces)
+* [:mag: Use a custom theme on your Wahoo to control what and in which zoom-level certain elements are rendered](docs/TAGS_ON_MAP_AND_DEVICE.md#osm-tags-during-map-creation-and-on-your-device-)
 
-From the `root` folder of wahooMapsCreator, run:
-  - `python3 wahoo_map_creator.py <country_name>` or
-  - `python wahoo_map_creator.py <country_name>`
-
-### Run wahooMapsCreator for your country
-It might be a good idea to run wahooMapsCreator first for a small country e.g. Malta to check if everything is running fine.
-In a next step you can run it for your own country.
-
-### Basic CLI-Usage
-from the `root` folder of wahooMapsCreator, run:
-- `python3 wahoo_map_creator.py <country_name>` or
-- `python wahoo_map_creator.py <country_name>`
-
-Examples:
-- for Malta: `python3 wahoo_map_creator.py malta`
-- for Ireland: `python3 wahoo_map_creator.py ireland`
-
-### Advanced CLI-Usage
-The script supports many arguments.
-For a list of all supported arguments, run:
-- `python3 wahoo_map_creator.py -h` or
-- `python wahoo_map_creator.py -h`
-
-Examples:
-- for Malta, download new maps if existing maps are older than 100 days and process files even if files exist
-  - `python3 wahoo_map_creator.py malta -md 100 -fp`
-- for Germany, download and process whole tiles which involves other countries than the given
-  - `python3 wahoo_map_creator.py germany -bc`
-
-## Copy the map-files to your device
-When file-creation is finished copy the map-files to your device:
--  [Copy maps files to Wahoo](docs/COPY_TO_WAHOO.md)
-
-## use a custom theme on your Wahoo
-You can use a custom theme to control which OSM-tags are displayed in which zoom-level
--  [OSM-tags during map creation and on your device](docs/TAGS_ON_MAP_AND_DEVICE.md)
-
-## Contribution
+## Contribution / Questions
 You are welcome to provide input via Pull Requests, Issues or in any other way!
-Discussion goes on:
-- in this telegram channel: https://t.me/joinchat/TaMhjouxlsAzNWZk
-- in this google group: https://groups.google.com/g/wahoo-elemnt-users/c/PSrdapfWLUE
+If you have trouble using wahooMapsCreator, look into the FAQ, write an issue or join the telegram channel
+- [FAQ](docs/FAQ.md#frequently-asked-questions)
+- [:pencil2: issue](https://github.com/treee111/wahooMapsCreator/issues)
+- telegram channel: https://t.me/joinchat/TaMhjouxlsAzNWZk
 
-More details can be found here: [CONTRIBUTING](.github/CONTRIBUTING.md#Contributing-to-wahooMapsCreator)
+More details can be found here: [CONTRIBUTING](docs/CONTRIBUTING.md#contributing-to-wahoomapscreator-)
 
 ## Thanks to
 [@Intyre](https://github.com/Intyre)/Hank for the initial version of the script
 
-@Higli and [@Ebe66](https://github.com/Ebe66)/ebo for the Windows- port
+[@Ebe66](https://github.com/Ebe66)/ebo for the Windows- port
+
+[@mweirauch](https://github.com/mweirauch) for bringing in new ideas, testing and using the tool
+
+[@zenziwerken](https://github.com/zenziwerken) for the work done for [POIs](https://github.com/zenziwerken/Bolt2-Mapsforge-Rendertheme)!
+
+[@macdet](https://github.com/macdet) for bringing in new thoughts, testing and making this a little more public
+
+[@vti](https://github.com/vti) for creating a GUI application to copy maps to wahoo and configure the device [POIs](https://github.com/vti/elemntary) as well as an [docker image](https://github.com/vti/wahooMapsCreator-docker) for wahooMapsCreator!

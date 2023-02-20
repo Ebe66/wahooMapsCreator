@@ -1,9 +1,9 @@
-name: Git Release
+name: Create release with .zip files on new tag
 
 on:
   push:
     tags:
-    - v[0-9]+.[0-9]+.[0-9]+
+      - v[0-9]+.[0-9]+.[0-9]+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,7 +27,7 @@ jobs:
           RELEASE_NAME_PREFIX: "Release "
         with:
           args: |
-            dist/wahooMapsCreator-*.zip
+            dist/*.zip
             darwin-amd64.zip
             linux-amd64.zip
             windows-amd64.zip

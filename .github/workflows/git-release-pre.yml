@@ -1,9 +1,9 @@
-name: Git Pre-Release
+name: Create pre-release with .zip files
 
 on:
   push:
-    tags:
-    - v[0-9]+.[0-9]+.[0-9]+-pre**
+    branches:
+      - "release-*"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,11 +24,12 @@ jobs:
         uses: docker://antonyurchenko/git-release:latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_NAME_PREFIX: "Pre-Release "
-          PRE_RELEASE: true
+          UNRELEASED: "update"
+          ALLOW_EMPTY_CHANGELOG: true
+          DRAFT_RELEASE: true
         with:
           args: |
-            dist/wahooMapsCreator-*.zip
+            dist/*.zip
             darwin-amd64.zip
             linux-amd64.zip
             windows-amd64.zip

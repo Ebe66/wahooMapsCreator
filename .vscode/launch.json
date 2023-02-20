@@ -2,62 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "only1-tile",
+            "name": "x/y: 134/88 (STG)",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "${workspaceRoot}/tests/json/germany-only1.json",
-                "-md",
-                "100",
-                "-fp",
-                "-c",
-                "-om"
-            ]
-        },
-        {
-            "name": "only1-tag-hidrive2",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
-            "console": "integratedTerminal",
-            "args": [
-                "${workspaceRoot}/tests/json/germany-only1.json",
-                "-tag",
-                "tag-wahoo-hidrive2.xml",
-                "-md",
-                "100",
-                "-fp",
-                "-c",
-                "-om"
-            ]
-        },
-        {
-            "name": "only2-tile",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
-            "console": "integratedTerminal",
-            "args": [
-                "${workspaceRoot}/tests/json/germany-only2.json",
-                "-md",
-                "100",
-                "-fp",
-                "-c",
-                "-om"
-            ]
-        },
-        {
-            "name": "only9",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
-            "console": "integratedTerminal",
-            "args": [
-                "${workspaceRoot}/tests/json/germany-only9.json",
-                "-tag",
-                "tag-wahoo.xml",
+                "cli",
+                "-xy",
+                "134/88",
                 "-md",
                 "100",
                 "-fp",
@@ -65,47 +18,42 @@
             ]
         },
         {
-            "name": "koblenz",
+            "name": "x/y: 134/88,134/87 (STG+HN)",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "${workspaceRoot}/tests/json/germany-koblenz.json"
+                "cli",
+                "-xy",
+                "134/88,134/87",
+                "-md",
+                "100",
+                "-fp",
+                "-c"
             ]
         },
         {
             "name": "germany",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "${workspaceRoot}/tests/json/germany.json"
+                "cli",
+                "-co",
+                "germany"
             ]
         },
         {
-            "name": "germany_wo_bc",
+            "name": "malta (no POI)",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "germany",
-                "-tag",
-                "tag-wahoo.xml",
-                "-c",
-                "-md",
-                "100"
-            ]
-        },
-        {
-            "name": "malta",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
-            "console": "integratedTerminal",
-            "args": [
+                "cli",
+                "-co",
                 "malta",
                 "-tag",
                 "tag-wahoo.xml",
@@ -116,12 +64,14 @@
             ]
         },
         {
-            "name": "malta-geofabrik",
+            "name": "malta-geofabrik (no POI)",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
+                "cli",
+                "-co",
                 "malta",
                 "-tag",
                 "tag-wahoo.xml",
@@ -133,63 +83,102 @@
             ]
         },
         {
+            "name": "malta -c NO -fp",
+            "type": "python",
+            "request": "launch",
+            "module": "wahoomc",
+            "console": "integratedTerminal",
+            "args": [
+                "cli",
+                "-co",
+                "malta",
+                "-c",
+                "-md",
+                "100"
+            ]
+        },
+        {
+            "name": "malta",
+            "type": "python",
+            "request": "launch",
+            "module": "wahoomc",
+            "console": "integratedTerminal",
+            "args": [
+                "cli",
+                "-co",
+                "malta",
+                "-fp",
+                "-c",
+                "-md",
+                "100"
+            ]
+        },
+        {
+            "name": "x/y: 135/91 (Garda) #160",
+            "type": "python",
+            "request": "launch",
+            "module": "wahoomc",
+            "console": "integratedTerminal",
+            "args": [
+                "cli",
+                "-xy",
+                "135/91",
+                "-fp",
+                "-c",
+                "-md",
+                "100"
+            ]
+        },
+        {
             "name": "gui",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
-            "args": []
+            "args": [
+                "gui"
+            ]
         },
         {
             "name": "cli help",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
                 "-h"
             ]
         },
         {
-            "name": "hong_kong",
+            "name": "cli.init",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc.init",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "name": "x/y: 133/88 (germany&france)",
+            "type": "python",
+            "request": "launch",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "hong_kong",
-                "-fp",
-                "-c",
-                "-bc",
-                "-md",
-                "100"
+                "cli",
+                "-xy",
+                "133/88"
             ]
         },
         {
-            "name": "macao",
+            "name": "x/y: 138/100 (malta) -c",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "macao",
-                "-fp",
-                "-c",
-                "-bc",
-                "-md",
-                "100"
-            ]
-        },
-        {
-            "name": "test_2_malta",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
-            "console": "integratedTerminal",
-            "args": [
-                "malta",
-                "-tag",
-                "tag-wahoo.xml",
+                "cli",
+                "-xy",
+                "138/100",
                 "-fp",
                 "-c",
                 "-md",
@@ -197,41 +186,59 @@
             ]
         },
         {
-            "name": "test_2_liech",
+            "name": "x/y: stg->gardasee (ten tiles)",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/wahoo_map_creator.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "liechtenstein",
-                "-tag",
-                "tag-wahoo.xml",
-                "-fp",
-                "-c",
+                "cli",
+                "-xy",
+                "134/88,134/89,134/90,134/91,135/88,135/89,135/90,135/91,136/90,136/91"
+            ]
+        },
+        {
+            "name": "mexico #113",
+            "type": "python",
+            "request": "launch",
+            "module": "wahoomc",
+            "console": "integratedTerminal",
+            "args": [
+                "cli",
+                "-co",
+                "mexico",
                 "-md",
                 "100"
             ]
         },
         {
-            "name": "old shape2osm",
+            "name": "american_samoa #135",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/tooling/shape2osm.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "C:\\VSCode\\python\\wahooMapsCreator\\output\\138\\100\\land.shp",
-                "C:\\VSCode\\python\\wahooMapsCreator\\output\\138\\100\\land1.osm"
+                "cli",
+                "-co",
+                "american_samoa",
+                "-c",
+                "-md",
+                "100",
             ]
         },
         {
-            "name": "new shape2osm",
+            "name": "commonwealth_of_the_northern_mariana_islands #135",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/tooling/shape2osm/shape2osm.py",
+            "module": "wahoomc",
             "console": "integratedTerminal",
             "args": [
-                "C:\\VSCode\\python\\wahooMapsCreator\\output\\138\\100\\land.shp",
-                "C:\\VSCode\\python\\wahooMapsCreator\\output\\138\\100\\land1.osm"
+                "cli",
+                "-co",
+                "commonwealth_of_the_northern_mariana_islands",
+                "-c",
+                "-md",
+                "100",
             ]
         }
     ]
